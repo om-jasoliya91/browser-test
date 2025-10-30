@@ -5,29 +5,53 @@
          colors="true"
 >
     <testsuites>
+        <!-- ✅ Unit Tests -->
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
         </testsuite>
+
+        <!-- ✅ Feature Tests -->
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
         </testsuite>
+
+        <!-- ✅ Browser (Dusk) Tests -->
+        <testsuite name="Browser">
+            <directory>tests/Browser</directory>
+        </testsuite>
     </testsuites>
+
     <source>
         <include>
             <directory>app</directory>
         </include>
     </source>
+
     <php>
+        <!-- ✅ App Settings -->
         <env name="APP_ENV" value="testing"/>
-        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
-        <env name="BCRYPT_ROUNDS" value="4"/>
-        <env name="BROADCAST_CONNECTION" value="null"/>
-        <env name="CACHE_STORE" value="array"/>
-        <env name="DB_CONNECTION" value="sqlite"/>
-        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="APP_DEBUG" value="true"/>
+        <env name="APP_KEY" value="base64:TESTINGKEY1234567890TESTINGKEY1234567890="/>
+        <env name="APP_URL" value="http://127.0.0.1:8000"/>
+
+        <!-- ✅ Database (use your actual MySQL setup) -->
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_HOST" value="127.0.0.1"/>
+        <env name="DB_PORT" value="3306"/>
+        <env name="DB_DATABASE" value="laravel_test_database"/>
+        <env name="DB_USERNAME" value="root"/>
+        <env name="DB_PASSWORD" value="Root@123"/>
+
+        <!-- ✅ Mail / Cache / Queue -->
         <env name="MAIL_MAILER" value="array"/>
+        <env name="CACHE_STORE" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
-        <env name="SESSION_DRIVER" value="array"/>
+
+        <!-- ✅ Session -->
+        <env name="SESSION_DRIVER" value="database"/>
+        <env name="SESSION_LIFETIME" value="120"/>
+
+        <!-- ✅ Disable optional services -->
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>
