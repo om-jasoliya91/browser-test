@@ -15,8 +15,13 @@ class LoginPageTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser
                 ->visit('/login')
+                ->type('email', 'test@gmail.com')
+                ->type('password', 'password')
                 ->screenshot('login-page')
                 ->assertSee('Login');
         });
     }
 }
+// vendor/laravel/dusk/bin/chromedriver-linux --port=9515
+// ./vendor/bin/pest --filter=UserTest
+// ./vendor/bin/pest --filter=ExampleTest
