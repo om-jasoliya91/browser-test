@@ -12,14 +12,8 @@ class ExampleTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser
                 ->visit('/')
-                // ->screenshot('welcome-page')
+                ->screenshot('homepage')  // 👈 this will save a screenshot named 'homepage.png'
                 ->assertSee('Dashboard');  // 👈 change this to any text visible on your homepage
         });
     }
-    //  public function test_the_application_returns_a_successful_response(): void
-    // {
-    //     $response = $this->get('/');
-
-    //     $response->assertStatus(200);
-    // }
 }
